@@ -6,11 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.Marker
 import kotlinx.coroutines.launch
 
 class MapViewModel(private val repository: DataBaseRepository) : ViewModel() {
     val _mapData: MutableLiveData<List<Place>> = MutableLiveData()
     val mapData get() = _mapData
+    var lastMarker: Marker? = null
 
     fun saveData(lat: String?, long: String?) {
         Log.d(">>>", "data saaved to the Database")

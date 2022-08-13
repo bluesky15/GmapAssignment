@@ -1,6 +1,6 @@
 package com.lkb.googlemapdemo
 
-class DataBaseRepository(val dataBase: MapDAO) {
+class DataBaseRepository(private val dataBase: MapDAO) {
      suspend fun saveData(place: Place) {
         dataBase.insertPlaceData(place)
     }
